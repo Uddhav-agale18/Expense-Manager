@@ -1,0 +1,35 @@
+<app-header [logout]="true" [menu]="true"></app-header>
+
+<div class=" d-flex justify-content-between align-bottom">
+    <div class="display-5 container mt-5 mb-3">Welcome {{user.name}}
+        <img  [src]="user.url? user.url:'../../../assets/image.png'" width="100" height="100" style="border-radius: 50%;">
+    </div>
+
+</div>
+
+
+<div class="container">
+    <div class="d-flex w-25 mb-2 ">
+        <select class="form-select" [(ngModel)]="year">
+            <option *ngFor="let item of years" [value]=item>{{item}}</option>
+        </select>
+        <div class="ms-2">
+            <button class="btn btn-primary" [routerLink]="'/chart/'+year">Charts</button>
+        </div>
+    </div>
+    <table class="table table-hover border">
+        <thead class="">
+            <tr class="table-primary">
+                <th scope="col">Month</th>
+                <th scope="col">Total</th>
+            </tr>
+        </thead>
+        <tbody *ngIf="expenseByMonths">
+            <tr *ngFor="let item of expenseByMonths">
+                <td *ngIf="item._id.ab.slice(0,4) == year">{{months[ item._id.ab.slice(5,7)| number]+' '+year}}</td>
+                <td *ngIf="item._id.ab.slice(0,4) == year">&#8377;{{item.totalAmount}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+

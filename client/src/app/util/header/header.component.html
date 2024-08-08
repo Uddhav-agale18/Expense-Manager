@@ -1,0 +1,16 @@
+<div class="d-flex justify-content-between me-2  p-2 bg-primary">
+    <div class="d-flex justify-content-around btnStyle w-25">
+        <button class="btn btn-primary" *ngIf="menu"><mat-icon>menu</mat-icon></button>
+        <button class="btn btn-primary" *ngIf="!menu" routerLink="/dashboard">&#8592; Back</button>
+        <div class="btn btn-primary" *ngIf="!menu" ></div>
+        <button class="btn btn-primary" *ngIf="menu" routerLink="/master">Types</button>
+        <button class="btn btn-primary" *ngIf="menu" routerLink="/expense">Expense</button>
+    </div>
+    <div>
+        <button class="btn btn-primary" *ngIf="logout" routerLink="/login" (click)="onlogout()">Logout</button>
+    </div>
+</div>
+
+<!-- <div class="mb-3 p-2 bg-primary " *ngIf="back">
+    <button class="btn btn-primary " routerLink="/dashboard">&#8592; Back</button>
+</div> -->

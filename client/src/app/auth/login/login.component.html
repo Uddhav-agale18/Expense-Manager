@@ -1,0 +1,30 @@
+<div class="content d-flex justify-content-center align-items-center">
+    <div class="container col-10 col-sm-6 col-md-5 col-lg-3 ">
+        <form class="border p-3 " [formGroup]="form">
+            <p class="h3 ">Login Form</p>
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">E-mail</label>
+                <span class="text-danger">*</span>
+                <input type="email" class="form-control" [ngClass]="this.form.get('username')?.valid ? 'is-valid':'' "
+                    id="exampleFormControlInput1" placeholder="Username" formControlName="username">
+                <small *ngIf="this.form.get('username')?.invalid && this.form.get('username')?.touched">Username is
+                    required field </small>
+            </div>
+            <div >
+                <label for="exampleFormControlInput1" class="form-label">Password</label>
+                <span class="text-danger">*</span>
+                <input type="password" class="form-control" id="exampleFormControlInput1" placeholder="Password"
+                    formControlName="password" [ngClass]="this.form.get('password')?.valid ? 'is-valid':'' " required>
+                <div class="invalid-feedback">
+                    Please Enter A Password.
+                </div>
+            </div>
+            <div class="w-100 mb-2 text-end">
+                <small class="text-primary fw-bold" routerLink="/register" >Dont't Have An account? sign-up.</small>
+            </div>
+            <div class="mb-3">
+                <button class="btn btn-primary" type="button" (click)="submit()">Submit</button>
+            </div>
+        </form>
+    </div>
+
